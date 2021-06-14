@@ -136,4 +136,16 @@ function my_navigation_template( $template, $class ){'
 the_posts_pagination( array(
 	'end_size' => 2,
 ) ); 
+
+add_action ('widgets_init', 'shaman_media_init');
+function shaman_media_init(){
+	register_sidebar(array(
+		'name'          => esc_html__('Сайдбар блога', 'shaman_media') ,
+		'id'            => "sidebar-blog",
+		'before_widget' => '<section id="%1$s" class="sidebar-widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h5 class="widget-title mb-3">',
+		'after_title'   => '</h5>' 
+	));
+}
 ?>
