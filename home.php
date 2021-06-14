@@ -36,7 +36,7 @@
                                 the_post_thumbnail( 'post-thumbnail', array ('class' => "img-fluid w-100"));
                             }
                             else {
-                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog-1.jpg" />';
+                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog.jpg" />';
                             }
                             ?>
                               
@@ -67,7 +67,7 @@
                                 the_post_thumbnail( 'post-thumbnail', array ('class' => "img-fluid w-100"));
                             }
                             else {
-                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog-1.jpg" />';
+                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog.jpg" />';
                             }
                             ?>
                               
@@ -90,6 +90,14 @@
                             <?php } endwhile; else: ?>
 	            Записей нет.
             <?php endif; ?>
+            
+            <div class="col-lg-12"><?php the_posts_pagination(array(
+                'prev_text'    => __('« Предыдущие посты'),
+	            'next_text'    => __('Следующие посты »'),
+                'before_page_number' => '<span class="p-2 border">',
+	            'after_page_number'  => '</span>'
+            )); ?></div>
+
                 </div>
             </div>
             <div class="col-lg-4">
