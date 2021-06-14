@@ -15,7 +15,7 @@ if(! function_exists('shaman_media_setup')) {
 		add_theme_support( 'title-tag');
 		//Добавляем миниатюры к постам
 		add_theme_support( 'post-thumbnails');
-		set_post_thumbnail_size( 730, 480 ); //размер миниатюр поста по умолчанию
+		set_post_thumbnail_size( 730, 480, true); //размер миниатюр поста по умолчанию
 	}
 	
 	add_action( "after_setup_theme", 'shaman_media_setup');
@@ -124,4 +124,16 @@ function delete_intermediate_image_sizes( $sizes ){
 		'2048x2048',
 	] );
 }
+
+add_filter('navigation_markup_template', 'my_navigation_template', 10, 2 );
+function my_navigation_template( $template, $class ){'
+	<nav class="navigation %1$s" role="navigation">
+		<div class="nav-links">%3$s</div>
+	</nav>    
+	';
+}
+// выводим пагинацию
+the_posts_pagination( array(
+	'end_size' => 2,
+) ); 
 ?>
