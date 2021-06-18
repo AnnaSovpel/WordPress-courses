@@ -56,7 +56,8 @@ function shaman_media_menus() {
 	// Собираем несколько областей меню
 	$locations = array(
 		'header'  => __( 'Header Menu', 'twentytwenty' ),
-		'footer' => __( 'Footer Menu', 'twentytwenty' ),
+		'footer_left' => __( 'Footer Left Menu', 'shaman_media' ),
+		'footer_right' => __( 'Footer Right Menu', 'shaman_media' ),
 	);
 	// Регестрируем области меню, которые лежат в перемнной $locations
 	register_nav_menus( $locations );
@@ -157,6 +158,22 @@ function shaman_media_init(){
 		'before_title'  => '<h5 class="widget-title mb-3">',
 		'after_title'   => '</h5>' 
 	));
+	register_sidebar(array(
+		'name'          => esc_html__('Текст в подвале', 'shaman_media') ,
+		'id'            => "sidebar-footer-text",
+		'before_widget' => '<div class="footer-widget footer-link %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4>',
+		'after_title'   => '</h4>' 
+	));
+	register_sidebar(array(
+		'name'          => esc_html__('Контакты в подвале', 'shaman_media') ,
+		'id'            => "sidebar-footer-contacts",
+		'before_widget' => '<div class="footer-widget footer-text %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h4>',
+		'after_title'   => '</h4>' 
+	));
 }
 
 ?>
@@ -201,7 +218,7 @@ class Foo_Widget extends WP_Widget {
 		if ( ! empty( $title ) ) {
 			echo $args['before_title'] . $title . $args['after_title'];
 		}
-		echo '<a href="'.$file.'"><i class="fa fa-file-pdf"></i>'.$file_name.'</a>';
+		echo '<a href="https://www.bsut.by/images/BottomMenuFiles/GazetyIJurnaly/gazeta_vesti_belguta/vesti_belguta_2021_11.pdf" download"><i class="fa fa-file-pdf"></i>'.$file_name.'</a>';
 		echo $args['after_widget'];
 	}
 
