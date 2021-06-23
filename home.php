@@ -36,14 +36,14 @@
                                 the_post_thumbnail( 'post-thumbnail', array ('class' => "img-fluid w-100"));
                             }
                             else {
-                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog-1.jpg" />';
+                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog.jpg" />';
                             }
                             ?>
                               
                                 <div class="mt-4 mb-3 d-flex">
                                     <div class="post-author mr-3">
                                         <i class="fa fa-user"></i>
-                                        <span class="h6 text-uppercase"><?php the_author();?></span>
+                                        <a href="<?php echo get_author_posts_url(get_the_author_meta('ID'));?>" class="h6 text-uppercase"><?php the_author();?></a>
                                     </div>
 
                                     <div class="post-info">
@@ -67,14 +67,14 @@
                                 the_post_thumbnail( 'post-thumbnail', array ('class' => "img-fluid w-100"));
                             }
                             else {
-                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog-1.jpg" />';
+                                echo '<img class = "img-fluid w-100" src="'.get_template_directory_uri().'/images/blog/blog.jpg" />';
                             }
                             ?>
                               
                                 <div class="mt-4 mb-3 d-flex">
                                     <div class="post-author mr-3">
                                         <i class="fa fa-user"></i>
-                                        <span class="h6 text-uppercase"><?php the_author();?></span>
+                                        <a href="<?php echo get_author_posts_url(get_the_author_meta('ID'));?>" class="h6 text-uppercase"><?php the_author();?></a>
                                     </div>
 
                                     <div class="post-info">
@@ -90,65 +90,17 @@
                             <?php } endwhile; else: ?>
 	            Записей нет.
             <?php endif; ?>
+            
+            <div class="col-lg-12"><?php the_posts_pagination(array(
+                'prev_text'    => __('« Предыдущие посты'),
+	            'next_text'    => __('Следующие посты »'),
+                'before_page_number' => '<span class="p-2 border">',
+	            'after_page_number'  => '</span>'
+            )); ?></div>
+
                 </div>
             </div>
-            <div class="col-lg-4">
-                      <div class="row">
-                        <div class="col-lg-12">
-                            <div class="sidebar-widget search">
-                                <div class="form-group">
-                                    <input type="text" placeholder="поиск" class="form-control">
-                                    <i class="fa fa-search"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <div class="sidebar-widget about-bar">
-                                <h5 class="mb-3">О нас</h5>
-                                <p>Мы — маркетинговое агентство полного цикла, которое оказывает диджитал услуги стартапам и крупным компаниям</p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <div class="sidebar-widget category">
-                                <h5 class="mb-3">Рубрики</h5>
-                                <ul class="list-styled">
-                                    <li>Маркетинг</li>
-                                    <li>Диджитал</li>
-                                    <li>SEO</li>
-                                    <li>Веб-дизайн</li>
-                                    <li>Разработка</li>
-                                    <li>Видео</li>
-                                    <li>Подкаст</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12">
-                            <div class="sidebar-widget tag">
-                                <a href="#">web</a>
-                                <a href="#">development</a>
-                                <a href="#">seo</a>
-                                <a href="#">marketing</a>
-                                <a href="#">branding</a>
-                                <a href="#">web deisgn</a>
-                                <a href="#">Tutorial</a>
-                                <a href="#">Tips</a>
-                                <a href="#">Design trend</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-widget download">
-                                <h5 class="mb-4">Полезные файлы</h5>
-                                <a href="#"> <i class="fa fa-file-pdf"></i>Презентация Promodise</a>
-                                <a href="#"> <i class="fa fa-file-pdf"></i>10 источников бесплатного SEO</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>   
+<?php get_sidebar();?>
         </div>
     </div>
 </section>
