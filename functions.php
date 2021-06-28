@@ -777,3 +777,36 @@ class Bootstrap_Walker_Comment extends Walker {
 		<?php
 	}
 }
+//регистрируем новый тип записи - партнёры
+add_action('init', 'my_custom_init_partners');
+function my_custom_init_partners(){
+	register_post_type('partners', array(
+		'labels'             => array(
+			'name'               => __('Партнёры'), // Основное название типа записи
+			'singular_name'      => __('Партнёр'), // отдельное название записи типа service
+			'add_new'            => __('Добавить новую'),
+			'add_new_item'       => __('Добавить нового партнёры'),
+			'edit_item'          => __('Редактировать партнёра'),
+			'new_item'           => __('Новый партнёр'),
+			'view_item'          => __('Посмотреть партнёров'),
+			'search_items'       => __('Найти партнёра'),
+			'not_found'          => __('Партнёров не найдено'),
+			'not_found_in_trash' => __('В корзине партнёров не найдено'),
+			'parent_item_colon'  => '',
+			'menu_name'          => __('Партнёры')
+
+		  ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => true,
+		'capability_type'    => 'post',
+		'menu_icon'			 => 'dashicons-groups',
+		'has_archive'        => true,
+		'hierarchical'       => false,
+		'menu_position'      => 5,
+		'supports'           => array('title','editor','author','thumbnail','excerpt')
+	) );
+}
