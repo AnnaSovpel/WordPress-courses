@@ -880,3 +880,35 @@ function my_custom_init_pricing(){
 		'supports'           => array('title','editor','author','thumbnail','excerpt', 'custom-fields')
 	) );
 }
+
+//регистрируем новый тип записи - отзывы
+
+register_post_type('testimonial', array(
+	'labels'             => array(
+		'name'               => __('Отзывы'), // Основное название типа записи
+		'singular_name'      => __('Отзыв'), // отдельное название записи типа service
+		'add_new'            => __('Добавить новый отзыв'),
+		'add_new_item'       => __('Добавить новый отзыв'),
+		'edit_item'          => __('Редактировать отзыв'),
+		'new_item'           => __('Новый отзыв'),
+		'view_item'          => __('Посмотреть отзыв'),
+		'search_items'       => __('Найти отзыв'),
+		'not_found'          => __('Отзывов не найдено'),
+		'not_found_in_trash' => __('В корзине отзывов не найдено'),
+		'parent_item_colon'  => '',
+		'menu_name'          => __('Отзывы')
+
+	  ),
+	'public'             => true,
+	'publicly_queryable' => true,
+	'show_ui'            => true,
+	'show_in_menu'       => true,
+	'query_var'          => true,
+	'rewrite'            => true,
+	'menu_icon'			 => 'dashicons-format-status',
+	'capability_type'    => 'post',
+	'has_archive'        => true,
+	'hierarchical'       => false,
+	'menu_position'      => 8,
+	'supports'           => array('title','thumbnail','excerpt', 'custom-fields')
+) );
