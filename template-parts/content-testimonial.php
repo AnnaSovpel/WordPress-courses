@@ -69,7 +69,7 @@
                 </div>
               </div>
                   <?php 
-                  break;
+                  break; 
                   default: ?>
   <div class="carousel-item">
                 <div class="row">
@@ -93,7 +93,6 @@
                 </div>
               </div>
                   <?php
-                }
                 ?>
                    
               <!--  ITEM END  -->
@@ -101,6 +100,9 @@
                 <?php 
                 break;
               }
+            }
+
+              
             } else {
               // Постов не найдено
             }
