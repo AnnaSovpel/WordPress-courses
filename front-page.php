@@ -160,3 +160,5 @@
   <!--  COUNTER AREA END  -->
 
 <?php get_footer(); ?>
+
+
